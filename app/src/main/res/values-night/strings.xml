@@ -1,5 +1,5 @@
+<?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <string name="app_name">SecureTalk</string>
     <string name="choose_image">Choose Image</string>
     <string name="message">Message -</string>
     <string name="secret_key">Secret Key -</string>

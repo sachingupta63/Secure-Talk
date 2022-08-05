@@ -6,7 +6,9 @@
     android:layout_height="match_parent"
     android:gravity="center|fill_horizontal"
     android:orientation="vertical"
-    tools:context=".MainActivity">
+    android:id="@+id/main_layout"
+    android:visibility="gone"
+    tools:context=".Activity.MainActivity">
 
     <TextView
         android:layout_width="match_parent"
@@ -14,7 +16,7 @@
         android:layout_margin="30dp"
         android:gravity="center_horizontal"
         android:text=" Secure Talk!!"
-        android:textColor="#303F9F"
+        android:textColor="#E3B632"
         android:textSize="35dp"
         android:textStyle="bold" />
 
@@ -23,6 +25,41 @@
         android:layout_height="match_parent"
         android:gravity="center"
         android:orientation="vertical">
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_margin="20dp"
+            android:orientation="horizontal"
+            android:padding="10dp">
+
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:background="@drawable/border"
+                android:orientation="vertical"
+                android:padding="20dp">
+
+                <ImageView
+                    android:layout_width="75dp"
+                    android:layout_height="75dp"
+                    android:layout_gravity="center_horizontal"
+                    android:onClick="stego"
+                    android:src="@drawable/stago"
+                    tools:ignore="SpeakableTextPresentCheck" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center_horizontal"
+                    android:text="Steganography"
+                    android:textStyle="bold" />
+
+            </LinearLayout>
+
+
+        </LinearLayout>
 
         <LinearLayout
             android:layout_width="match_parent"
@@ -34,8 +71,11 @@
             <LinearLayout
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:layout_margin="10dp"
                 android:layout_weight="1"
-                android:orientation="vertical">
+                android:background="@drawable/border"
+                android:orientation="vertical"
+                android:padding="13dp">
 
                 <ImageView
                     android:layout_width="75dp"
@@ -57,8 +97,11 @@
             <LinearLayout
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:layout_margin="10dp"
                 android:layout_weight="1"
-                android:orientation="vertical">
+                android:background="@drawable/border"
+                android:orientation="vertical"
+                android:padding="13dp">
 
                 <ImageView
                     android:layout_width="75dp"
@@ -89,8 +132,11 @@
             <LinearLayout
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:layout_margin="13dp"
                 android:layout_weight="1"
-                android:orientation="vertical">
+                android:background="@drawable/border"
+                android:orientation="vertical"
+                android:padding="10dp">
 
                 <ImageView
                     android:layout_width="75dp"
@@ -111,8 +157,11 @@
             <LinearLayout
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:layout_margin="13dp"
                 android:layout_weight="1"
-                android:orientation="vertical">
+                android:background="@drawable/border"
+                android:orientation="vertical"
+                android:padding="10dp">
 
                 <ImageView
                     android:layout_width="75dp"

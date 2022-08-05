@@ -2,8 +2,11 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     package="com.example.securetalk">
+
+
+    <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
+    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE"/>
     <uses-permission android:name="android.permission.INTERNET"/>
-    <uses-permission android:name="android.permission.RECORD_AUDIO"/>
 
     <application
         android:allowBackup="true"
@@ -16,27 +19,33 @@
         android:theme="@style/Theme.SecureTalk"
         tools:targetApi="31">
         <activity
-            android:name=".ResetPasswordActivity"
-            android:label="Reset Password"
+            android:name=".Steganography.DecodeSteganoActivity"
             android:exported="false" />
         <activity
-            android:name=".RSA_Activity"
-            android:label="RSA Encrypt/Decrypt"
+            android:name=".Steganography.EncodeSteganoActivity"
             android:exported="false" />
         <activity
-            android:name=".MD5Activity"
-            android:label="MD5 Encrypt/Decrypt"
-            android:exported="false" />
+            android:name=".Activity.ResetPasswordActivity"
+            android:exported="false"
+            android:label="Reset Password" />
         <activity
-            android:name=".DESActivity"
-            android:label="DES Encrypt/Decrypt"
-            android:exported="false" />
+            android:name=".Algo.RSA_Activity"
+            android:exported="false"
+            android:label="RSA Encrypt/Decrypt" />
         <activity
-            android:name=".AESActivity"
-            android:label="AES Encrypt/Decrypt"
-            android:exported="false" />
+            android:name=".Algo.MD5Activity"
+            android:exported="false"
+            android:label="MD5 Encrypt/Decrypt" />
         <activity
-            android:name=".MainActivity"
+            android:name=".Algo.DESActivity"
+            android:exported="false"
+            android:label="DES Encrypt/Decrypt" />
+        <activity
+            android:name=".Algo.AESActivity"
+            android:exported="false"
+            android:label="AES Encrypt/Decrypt" />
+        <activity
+            android:name=".Activity.MainActivity"
             android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
@@ -44,6 +53,17 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
+        <provider
+            android:name="androidx.core.content.FileProvider"
+            android:authorities="${applicationId}.provider"
+            android:exported="false"
+            android:grantUriPermissions="true">
+            <meta-data
+                android:name="android.support.FILE_PROVIDER_PATHS"
+                android:resource="@xml/provider_paths" />
+        </provider>
+
+
     </application>
 
 </manifest>

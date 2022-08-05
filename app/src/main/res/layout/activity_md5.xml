@@ -1,18 +1,17 @@
 <?xml version="1.0" encoding="utf-8"?>
-<ScrollView
-    xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:layout_margin="10dp"
     android:orientation="vertical"
-    tools:context=".MD5Activity">
+    tools:context=".Algo.MD5Activity">
 
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:orientation="vertical"
-        >
+        android:orientation="vertical">
 
         <TextView
             android:layout_width="match_parent"
@@ -35,14 +34,18 @@
                 android:layout_marginTop="13dp"
                 android:layout_marginEnd="13dp"
                 android:layout_marginBottom="13dp"
+                android:background="@drawable/border"
                 android:hint="Enter text"
+                android:minHeight="48dp"
+                android:padding="12dp"
                 tools:ignore="TouchTargetSizeCheck" />
 
             <ImageButton
-                android:layout_width="50dp"
-                android:layout_height="50dp"
+                android:layout_width="40dp"
+                android:layout_height="40dp"
                 android:layout_alignParentRight="true"
-                android:layout_marginEnd="10dp"
+                android:layout_marginTop="17dp"
+                android:layout_marginEnd="20dp"
                 android:layout_marginBottom="10dp"
                 android:onClick="getspeechinput"
                 android:src="@drawable/ic_baseline_mic_none_24"
@@ -55,25 +58,24 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_gravity="center_horizontal"
-            android:backgroundTint="#DDAF23"
+            android:backgroundTint="#EDBC29"
             android:text="Hash" />
+
         <TextView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:layout_marginLeft="20dp"
             android:text="Output Text:"
             android:textSize="15dp"
-            android:textStyle="bold"
-            android:layout_marginLeft="20dp"
-            />
+            android:textStyle="bold" />
+
         <TextView
+            android:id="@+id/output_text"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:textIsSelectable="true"
-            android:id="@+id/output_text"
-            android:layout_marginLeft="20dp"
-            android:layout_marginRight="20dp"
-            android:background="#FFCDD2"
-            />
+            android:layout_margin="10dp"
+            android:background="#D7F4F1E6"
+            android:textIsSelectable="true" />
 
     </LinearLayout>
-</ScrollView>
+</LinearLayout>
