@@ -1,5 +1,5 @@
 # Secure-Talk
-This is messaging app and uses cryptography algo to encrypt/decrypt message.
+This is messaging app and uses cryptography algo to encrypt/decrypt message.I used differrent cryptography Algorithms to send encryted message.
 
 ## video
 
