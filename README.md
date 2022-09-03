@@ -3,8 +3,7 @@ This is messaging app and uses cryptography algo to encrypt/decrypt message.
 
 ## video
 
-https://user-images.githubusercontent.com/72181528/188263409-5366fdf7-9f9b-4f49-b016-9e9e3700fdeb.mp4
-
+https://user-images.githubusercontent.com/72181528/188263560-279101ec-60bf-4c5d-88e7-215018d73f16.mp4
 
 ## Preview
 
