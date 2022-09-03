@@ -21,7 +21,7 @@ import java.util.Locale;
 public class MD5Activity extends AppCompatActivity {
 
 
-    ///             THIS TECHNIQUE IS USED FOR GETTING A SECURE PASSWORD
+    ///              THIS TECHNIQUE IS USED FOR GETTING A SECURE PASSWORD
     ///this is hashing not ENCRYPTION
     ///we cannot decrypr this, the only thing we can do is just try to match a millions of inputs and wait for the correct one
     //generrally use for checking data loss and for making passsword
@@ -41,6 +41,8 @@ public class MD5Activity extends AppCompatActivity {
         hash_button=findViewById(R.id.clear_button);
 
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
+
+        //Hash Buttonb
         hash_button.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -67,9 +69,9 @@ public class MD5Activity extends AppCompatActivity {
             StringBuilder sb=new StringBuilder();
             for(int i=0;i<bytes.length;i++)
             {
+                //converting byte to string
                 sb.append(Integer.toString(( bytes[i]&0xff)+0x100,32).substring(1));
-                //pehle widen krra h and baad me 0x100 add krra nd hexadecimal me convert krde
-                // //and pehla character utha leta and builder me add krde
+
             }
             generatedPassword=sb.toString();
 
@@ -82,6 +84,8 @@ public class MD5Activity extends AppCompatActivity {
             return null;
         }
     }
+
+    //speech recognition
     public void getspeechinput(View view) {
 
         Intent intent =new Intent(RecognizerIntent.ACTION_RECOGNIZE_SPEECH);

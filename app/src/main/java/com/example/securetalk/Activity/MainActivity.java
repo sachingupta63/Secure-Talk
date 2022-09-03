@@ -46,7 +46,7 @@ public class MainActivity extends AppCompatActivity {
                 break;
 
             case BiometricManager.BIOMETRIC_ERROR_HW_UNAVAILABLE:
-                Toast.makeText(this, "Not Working", Toast.LENGTH_SHORT).show();
+                Toast.makeText(this, "Hardware Not Working", Toast.LENGTH_SHORT).show();
                 break;
 
             case BiometricManager.BIOMETRIC_ERROR_NONE_ENROLLED:

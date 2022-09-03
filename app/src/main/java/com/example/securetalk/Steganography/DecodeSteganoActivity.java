@@ -13,6 +13,7 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.ayush.imagesteganographylibrary.Text.AsyncTaskCallback.TextDecodingCallback;
 import com.ayush.imagesteganographylibrary.Text.ImageSteganography;
@@ -79,6 +80,7 @@ public class DecodeSteganoActivity extends AppCompatActivity implements TextDeco
 
     }
 
+    // Choosing image from gallery
     private void ImageChooser() {
         Intent intent = new Intent();
         intent.setType("image/*");
@@ -86,6 +88,7 @@ public class DecodeSteganoActivity extends AppCompatActivity implements TextDeco
         startActivityForResult(Intent.createChooser(intent, "Select Picture"), SELECT_PICTURE);
     }
 
+    //gallery choose result
     @Override
     protected void onActivityResult(int requestCode, int resultCode, Intent data) {
         super.onActivityResult(requestCode, resultCode, data);
@@ -108,8 +111,10 @@ public class DecodeSteganoActivity extends AppCompatActivity implements TextDeco
     @Override
     public void onStartTextEncoding() {
         //Whatever you want to do by the start of textDecoding
+        Toast.makeText(this, "Encoding start", Toast.LENGTH_SHORT).show();
     }
 
+    //Completion
     @Override
     public void onCompleteTextEncoding(ImageSteganography result) {
 

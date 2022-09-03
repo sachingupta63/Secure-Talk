@@ -58,7 +58,7 @@ public class DESActivity extends AppCompatActivity {
 
 
         input_text = findViewById(R.id.input_text);
-        //  password_text = (EditText) findViewById(R.id.password_text);
+
         output_text = findViewById(R.id.output_text);
         enc = findViewById(R.id.encrypt);
         dec = findViewById(R.id.decrypt);
@@ -70,7 +70,7 @@ public class DESActivity extends AppCompatActivity {
         myEncryptionKey=myEncKey;
         getMyEncryptionScheme=DES_ENCRYPTION_SCHEME;
         try {
-            KeyAsBytes=myEncryptionKey.getBytes(UNICODE_FORMAT);
+            KeyAsBytes=myEncryptionKey.getBytes(UNICODE_FORMAT); //converting into unicode_format
         } catch (UnsupportedEncodingException e) {
             e.printStackTrace();
         }
@@ -98,6 +98,7 @@ public class DESActivity extends AppCompatActivity {
         }
 
 
+        //Encrption button
         enc.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -110,6 +111,7 @@ public class DESActivity extends AppCompatActivity {
             }
         });
 
+        //decryption button
         dec.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -120,6 +122,7 @@ public class DESActivity extends AppCompatActivity {
             }
         });
 
+        //send button
         send.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -136,6 +139,7 @@ public class DESActivity extends AppCompatActivity {
                 }
             }
         });
+        //clear button
         clear.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -160,12 +164,12 @@ public class DESActivity extends AppCompatActivity {
         try {
             cipher.init(Cipher.ENCRYPT_MODE, key);
             byte[] plainText = unencryptedString.getBytes(UNICODE_FORMAT);
-            byte[] encryptedText = cipher.doFinal(plainText);
+            byte[] encryptedText = cipher.doFinal(plainText); //Encoding
 
-            encryptedString= Base64.encodeToString(encryptedText, Base64.DEFAULT);
+            encryptedString= Base64.encodeToString(encryptedText, Base64.DEFAULT); //Encoding to base 64
         }
         catch (InvalidKeyException|UnsupportedEncodingException| IllegalBlockSizeException | BadPaddingException e) {
-
+            Toast.makeText(this, e.toString(), Toast.LENGTH_SHORT).show();
         }
 
         return encryptedString;
@@ -175,10 +179,12 @@ public class DESActivity extends AppCompatActivity {
     { String decryptedText = null;
         try {
             cipher.init(Cipher.DECRYPT_MODE, key);
-            byte[] encryptedText = Base64.decode(encrytedString, Base64.DEFAULT);
-            byte[] plainText = cipher.doFinal(encryptedText);
+            byte[] encryptedText = Base64.decode(encrytedString, Base64.DEFAULT);  //Pehle decode kar byte main
+            byte[] plainText = cipher.doFinal(encryptedText); //Decryptinng
             decryptedText = bytes2String(plainText);
         }catch(InvalidKeyException|IllegalBlockSizeException|BadPaddingException e) {
+
+            Toast.makeText(this, e.getMessage(), Toast.LENGTH_SHORT).show();
 
         }
         return decryptedText;
@@ -195,6 +201,8 @@ public class DESActivity extends AppCompatActivity {
         }
         return stringBuffer.toString();
     }
+
+    // Speech Recognition
     public void getspeechinput(View view) {
 
         Intent intent =new Intent(RecognizerIntent.ACTION_RECOGNIZE_SPEECH);
@@ -205,13 +213,11 @@ public class DESActivity extends AppCompatActivity {
             startActivityForResult(intent, 1001);
         }
         catch (Exception e) {
-            Toast
-                    .makeText(DESActivity.this, " " + e.getMessage(),
-                            Toast.LENGTH_SHORT)
-                    .show();
+            Toast.makeText(DESActivity.this, " " + e.getMessage(), Toast.LENGTH_SHORT).show();
         }
     }
 
+    //Speech result will come here
     @Override
     protected void onActivityResult(int requestCode, int resultCode, Intent data) {
         super.onActivityResult(requestCode, resultCode, data);

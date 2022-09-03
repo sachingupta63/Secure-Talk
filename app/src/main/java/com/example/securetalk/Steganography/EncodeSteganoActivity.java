@@ -89,6 +89,8 @@ public class EncodeSteganoActivity extends AppCompatActivity implements TextEnco
                 ImageChooser();
             }
         });
+
+        //send button
         img_send_button.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -105,6 +107,7 @@ public class EncodeSteganoActivity extends AppCompatActivity implements TextEnco
                     if (message.getText() != null) {
 
                         //ImageSteganography Object instantiation
+                        //passing message and secret key
                         imageSteganography = new ImageSteganography(message.getText().toString(),
                                 secret_key.getText().toString(),
                                 original_image);
@@ -126,6 +129,8 @@ public class EncodeSteganoActivity extends AppCompatActivity implements TextEnco
                     return;
                 }
                 final Bitmap imgToSave = encoded_image;
+
+                //Running new thread to save into internal storage
                 Thread PerformEncoding = new Thread(new Runnable() {
                     @Override
                     public void run() {
@@ -151,6 +156,7 @@ public class EncodeSteganoActivity extends AppCompatActivity implements TextEnco
         startActivityForResult(Intent.createChooser(intent, "Select Picture"), SELECT_PICTURE);
     }
 
+    //share image button
     private void imageSend(){
 
         if(isSave && isEncoded){
@@ -170,6 +176,8 @@ public class EncodeSteganoActivity extends AppCompatActivity implements TextEnco
 
 
     }
+
+    //choose image result
 
     @Override
     protected void onActivityResult(int requestCode, int resultCode, Intent data) {
@@ -195,8 +203,10 @@ public class EncodeSteganoActivity extends AppCompatActivity implements TextEnco
     @Override
     public void onStartTextEncoding() {
         //Whatever you want to do at the start of text encoding
+        Toast.makeText(this, "Encoding Starting", Toast.LENGTH_SHORT).show();
     }
 
+    //Encoding Completed
     @Override
     public void onCompleteTextEncoding(ImageSteganography result) {
 
@@ -210,6 +220,7 @@ public class EncodeSteganoActivity extends AppCompatActivity implements TextEnco
         }
     }
 
+    //Internal storage save
     private void saveToInternalStorage(Bitmap bitmapImage) {
         OutputStream fOut;
         String timeStamp=new SimpleDateFormat("ddMMyyyy_HHmm").format(new Date());
@@ -235,6 +246,7 @@ public class EncodeSteganoActivity extends AppCompatActivity implements TextEnco
         }
     }
 
+    //Permission Checking
     private void checkAndRequestPermissions() {
         int permissionWriteStorage = ContextCompat.checkSelfPermission(this,
                 Manifest.permission.WRITE_EXTERNAL_STORAGE);

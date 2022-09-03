@@ -48,18 +48,24 @@ public class RSA_Activity extends AppCompatActivity {
         clear=(Button) findViewById(R.id.clear_button);
         send=(Button) findViewById(R.id.send);
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
+
+
         // generate a new public/private key pair to test with (note. you should only do this once and keep them!)
+        //getting key pair
         KeyPair kp = getKeyPair();
 
+        //public key
         PublicKey publicKey = kp.getPublic();
         final byte[] publicKeyBytes = publicKey.getEncoded();
         final String publicKeyBytesBase64 = new String(Base64.encode(publicKeyBytes, Base64.DEFAULT));
 
+        //private key
         PrivateKey privateKey = kp.getPrivate();
         byte[] privateKeyBytes = privateKey.getEncoded();
         final String privateKeyBytesBase64 = new String(Base64.encode(privateKeyBytes, Base64.DEFAULT));
 
 
+        //encrypt button
         enc.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -70,6 +76,7 @@ public class RSA_Activity extends AppCompatActivity {
             }
         });
 
+        //decrypt button
         dec.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -80,6 +87,7 @@ public class RSA_Activity extends AppCompatActivity {
             }
         });
 
+        //clear button
         clear.setOnClickListener( new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -94,6 +102,8 @@ public class RSA_Activity extends AppCompatActivity {
                 }
             }
         });
+
+        //send button
         send.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -127,14 +137,22 @@ public class RSA_Activity extends AppCompatActivity {
         return kp;
     }
 
+    //Encryption
     public static String encryptRSAToString(String clearText, String publicKey) {
         String encryptedBase64 = "";
         try {
             KeyFactory keyFac = KeyFactory.getInstance("RSA");
-            KeySpec keySpec = new X509EncodedKeySpec(Base64.decode(publicKey.trim().getBytes(), Base64.DEFAULT));
+            //this function is used converting back to Public key
+            //Format for storing public key
+            KeySpec keySpec = new X509EncodedKeySpec(Base64.decode(publicKey.trim().getBytes(), Base64.DEFAULT)); //First decode public key as it is in base64
             Key key = keyFac.generatePublic(keySpec);
 
             // get an RSA cipher object and print the provider
+            //As we are sending small bits of data then attacker can detect
+            //while using the technique of OAEP padding . It add padding-Boggus data to message to complete block
+            // such it become impossible  to crack
+            //MGF- Mask Generating Function - it takes arbitrary size input and give arbitrary size output
+            //OAEP - it takes two hash as input one is SHA and other is MGF
             final Cipher cipher = Cipher.getInstance("RSA/ECB/OAEPWITHSHA-256ANDMGF1PADDING");
             // encrypt the plain text using the public key
             cipher.init(Cipher.ENCRYPT_MODE, key);
@@ -180,10 +198,7 @@ public class RSA_Activity extends AppCompatActivity {
             startActivityForResult(intent, 1001);
         }
         catch (Exception e) {
-            Toast
-                    .makeText(RSA_Activity.this, " " + e.getMessage(),
-                            Toast.LENGTH_SHORT)
-                    .show();
+            Toast.makeText(RSA_Activity.this, " " + e.getMessage(), Toast.LENGTH_SHORT).show();
         }
     }
 
