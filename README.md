@@ -7,7 +7,9 @@ https://user-images.githubusercontent.com/72181528/188263560-279101ec-60bf-4c5d-
 
 ## Preview
 
-- ![Screenshot_2022-09-02-19-30-23-606_com example securetalk](https://user-images.githubusercontent.com/72181528/188262991-9ce3758a-f46d-40e2-8fd4-f08212badfd7.jpg)
+<p style="text-align:center;"><img src="https://user-images.githubusercontent.com/72181528/188262991-9ce3758a-f46d-40e2-8fd4-f08212badfd7.jpg"  width=60% height=75% align="center"></p>
+
+- ![Screenshot_2022-09-02-19-30-23-606_com example securetalk](https://user-images.githubusercontent.com/72181528/188262991-9ce3758a-f46d-40e2-8fd4-f08212badfd7.jpg )
 
 - ![Screenshot_2022-09-02-19-30-30-116_com example securetalk](https://user-images.githubusercontent.com/72181528/188262995-0d74f8d2-07e4-4ad6-960d-e6c44123918b.jpg)
 
