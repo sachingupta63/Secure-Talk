@@ -2,9 +2,9 @@
 This is messaging app and uses cryptography algo to encrypt/decrypt message.I used differrent cryptography Algorithms to send encryted message.
 
 ## video
-<div align="center">
+
 https://user-images.githubusercontent.com/72181528/188263560-279101ec-60bf-4c5d-88e7-215018d73f16.mp4
-</div>
+
 
 ## Preview
 <div align="center">
