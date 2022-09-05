@@ -2,11 +2,12 @@
 This is messaging app and uses cryptography algo to encrypt/decrypt message.I used differrent cryptography Algorithms to send encryted message.
 
 ## video
-
+<div align="center">
 https://user-images.githubusercontent.com/72181528/188263560-279101ec-60bf-4c5d-88e7-215018d73f16.mp4
+</div>
 
 ## Preview
-
+<div align="center">
    <center><img src="https://user-images.githubusercontent.com/72181528/188262991-9ce3758a-f46d-40e2-8fd4-f08212badfd7.jpg"  width=60% height=65% ></center>
 
 <!-- - ![Screenshot_2022-09-02-19-30-23-606_com example securetalk](https://user-images.githubusercontent.com/72181528/188262991-9ce3758a-f46d-40e2-8fd4-f08212badfd7.jpg ) -->
@@ -39,3 +40,4 @@ https://user-images.githubusercontent.com/72181528/188263560-279101ec-60bf-4c5d-
 
 <!-- - ![Screenshot_2022-09-02-19-31-10-499_com example securetalk](https://user-images.githubusercontent.com/72181528/188262978-e424ef74-c66f-4dfe-81ba-adaa90103676.jpg)
  -->
+ </div>
