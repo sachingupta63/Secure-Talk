@@ -22,11 +22,10 @@ import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.ayush.imagesteganographylibrary.BuildConfig;
 import com.ayush.imagesteganographylibrary.Text.AsyncTaskCallback.TextEncodingCallback;
 import com.ayush.imagesteganographylibrary.Text.ImageSteganography;
 import com.ayush.imagesteganographylibrary.Text.TextEncoding;
-import com.example.securetalk.Activity.MainActivity;
-import com.example.securetalk.BuildConfig;
 import com.example.securetalk.R;
 
 import java.io.File;

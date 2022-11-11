@@ -224,7 +224,7 @@ public class DESActivity extends AppCompatActivity {
         switch(requestCode)
         {
             case 1001:
-                if(resultCode==RESULT_OK&&data!=null)
+                if(resultCode==RESULT_OK && data!=null)
                 {
                     ArrayList<String> res=data.getStringArrayListExtra(RecognizerIntent.EXTRA_RESULTS);
                     input_text.setText(res.get(0));
